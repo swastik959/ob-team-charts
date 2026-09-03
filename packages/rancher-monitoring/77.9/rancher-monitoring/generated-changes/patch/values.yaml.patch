@@ -559,7 +559,7 @@
 +  ## Image to use to run the scripts
 +  image:
 +    repository: rancher/kuberlr-kubectl
-+    tag: v6.0.0
++    tag: v7.1.1
 +
 +## Rancher Monitoring
 +##
@@ -652,7 +652,7 @@
 -        tag: ""  # defaults to the Kubernetes version
 -        sha: ""
 +        repository: rancher/kuberlr-kubectl
-+        tag: v6.0.0
++        tag: v7.1.1
          pullPolicy: IfNotPresent
  
      env: {}
@@ -676,7 +676,7 @@
 +    enabled: false
 +  kubectl:
 +     repository: rancher/kuberlr-kubectl
-+     tag: v6.0.0
++     tag: v7.1.1
 +     pullPolicy: IfNotPresent
    rbac:
 +    ## Create RBAC resources for ServiceAccounts and users
@@ -828,7 +828,7 @@
 -      repository: prometheus/alertmanager
 -      tag: v0.28.1
 +      repository: rancher/appco-alertmanager
-+      tag: 0.28.1-12.7
++      tag: 0.31.1-15.2
        sha: ""
        pullPolicy: IfNotPresent
  
@@ -1042,7 +1042,7 @@
 +        repository: rancher/mirrored-prometheus-operator-admission-webhook
          # if not set appVersion field from Chart.yaml is used
 -        tag: ""
-+        tag: v0.85.0
++        tag: v0.89.0
          sha: ""
          pullPolicy: IfNotPresent
  
@@ -1067,7 +1067,7 @@
 -    # if not set appVersion field from Chart.yaml is used
 -    tag: ""
 +    repository: rancher/mirrored-prometheus-operator-prometheus-operator
-+    tag: v0.85.0
++    tag: v0.89.0
      sha: ""
      pullPolicy: IfNotPresent
  
@@ -1080,7 +1080,7 @@
 -      # if not set appVersion field from Chart.yaml is used
 -      tag: ""
 +      repository: rancher/mirrored-prometheus-operator-prometheus-config-reloader
-+      tag: v0.80.1
++      tag: v0.89.0
        sha: ""
  
      # add prometheus config reloader liveness and readiness probe. Default: false
