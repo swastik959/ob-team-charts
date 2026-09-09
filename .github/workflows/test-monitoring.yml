@@ -170,14 +170,15 @@ jobs:
         run: |
           RANCHER_URL="${{ steps.rancher-url.outputs.url }}"
           ATTEMPTS=0
+          HTTP_CODE=000
           while [ $ATTEMPTS -lt 60 ]; do
-            HTTP_CODE=$(curl -k -s -o /dev/null -w "%{http_code}" "${RANCHER_URL}/v3")
+            HTTP_CODE=$(curl -k -sL -o /dev/null -w "%{http_code}" "${RANCHER_URL}/v3/")
             [ "$HTTP_CODE" -eq 401 ] && exit 0
             echo "Attempt $((ATTEMPTS+1))/60: not ready (status $HTTP_CODE), retrying..."
             sleep 5
             ATTEMPTS=$((ATTEMPTS+1))
           done
-          echo "::error::Timed out waiting for Rancher API"
+          echo "::error::Timed out waiting for Rancher API (last status $HTTP_CODE)"
           exit 1
 
       - name: Create Rancher API token
